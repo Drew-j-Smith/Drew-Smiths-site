@@ -1,0 +1,14 @@
+
+html{
+    background-image: url("../pictures/philmont.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+main{
+    background-color: white;
+    margin: 0 auto;
+    width: 75%;
+
+}
+
