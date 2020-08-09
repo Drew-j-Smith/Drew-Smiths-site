@@ -8,7 +8,7 @@ html{
 .main{
     background-color: white;
     margin: 50px auto;
-    width: 75%;
+    width: calc(75% - 20px);
     min-height: calc(100% - 200px);
 }
 
