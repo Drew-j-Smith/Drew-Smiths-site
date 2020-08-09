@@ -5,14 +5,18 @@ html{
     background-size: cover;
 }
 
-main{
-    
+.main{
     background-color: white;
-    margin: 0 auto;
+    margin: 50px auto;
     width: 75%;
+    min-height: calc(100% - 200px);
 }
 
 main h1{
     text-align: center;
+}
+
+.mdl-mini-footer{
+    justify-content: center;
 }
 
