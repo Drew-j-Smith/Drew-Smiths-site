@@ -20,3 +20,6 @@ main h1{
     justify-content: center;
 }
 
+.youtube video{
+    width: 100%;
+}
