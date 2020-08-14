@@ -11,6 +11,7 @@ window.onresize = resizeYoutubeVideos; //sets youtube videos to 16:9 when resizi
 
 
 const select = document.querySelector(".filter"); //filter selection
+const projects = document.querySelectorAll(".project"); //elements to filter
 let optionElements = select.querySelectorAll("option"); //filter options
 var options = [];
 optionElements.forEach(element => {
@@ -18,8 +19,6 @@ optionElements.forEach(element => {
 });
 
 function filter(){
-    let projects = document.querySelectorAll(".project"); //elements to filter
-
     for (let i = 0; i < options.length; i++) {
         if(select.selectedIndex === i){
             projects.forEach(element => {//tests if element passes filter
