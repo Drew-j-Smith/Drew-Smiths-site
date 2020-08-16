@@ -43,12 +43,20 @@ if (select !== null){
 }
 
 
-function adjustFooter() {
+function adjustFooter() { //sets footer to bottom
+    let main = document.querySelector(".main")
     let footer = document.querySelector("footer");
-    if(footer.getBoundingClientRect().bottom < window.screen.height){//if the footer is not at the bottom move it
+    if(main.getBoundingClientRect().bottom + footer.offsetHeight + main.style.paddingBottom < window.screen.height){
+        //if the footer is not at the bottom move it
         footer.style.position = "fixed";
         footer.style.bottom = 0;
+    }
+    else{
+        //reset footer
+        footer.style.position = null;
+        footer.style.bottom = null;
     }
 }
 
 window.onload = adjustFooter;
+window.onchange = adjustFooter;
