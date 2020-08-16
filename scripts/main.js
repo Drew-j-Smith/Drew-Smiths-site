@@ -42,13 +42,13 @@ if (select !== null){
     select.onchange = filter; //filter every time the filter changes
 }
 
+
 function adjustFooter() {
     let footer = document.querySelector("footer");
-    if(footer.getBoundingClientRect().bottom < window.screen.height){//if the footer is not at the bottom move is
+    if(footer.getBoundingClientRect().bottom < window.screen.height){//if the footer is not at the bottom move it
         footer.style.position = "fixed";
         footer.style.bottom = 0;
     }
 }
 
-document.addEventListener("DOMContentLoaded", adjustFooter);//waits until everything is loaded
-
+window.onload = adjustFooter;
