@@ -17,6 +17,10 @@ main h1{
     text-align: center;
 }
 
+main p{
+    font-size: 17px;
+}
+
 .mdl-mini-footer{
     justify-content: center;
 }
