@@ -46,7 +46,7 @@ if (select !== null){
 function adjustFooter() { //sets footer to bottom
     let main = document.querySelector(".main")
     let footer = document.querySelector("footer");
-    if(main.getBoundingClientRect().bottom + footer.offsetHeight + main.style.paddingBottom < window.screen.height){
+    if(main.getBoundingClientRect().bottom + footer.offsetHeight + main.style.paddingBottom < window.innerHeight){
         //if the footer is not at the bottom move it
         footer.style.position = "fixed";
         footer.style.bottom = 0;
