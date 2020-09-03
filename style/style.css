@@ -27,3 +27,7 @@ main p{
 footer{
     width: 100%;
 }
+
+.mdl-cell{
+    padding: 10px;
+}
