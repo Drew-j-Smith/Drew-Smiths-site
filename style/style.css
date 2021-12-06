@@ -31,3 +31,12 @@ footer{
 .mdl-cell{
     padding: 10px;
 }
+
+.youtube-video {
+    aspect-ratio: 16 / 9;
+}
+
+.mdl-layout__content {
+    display: grid;
+    place-items: end;
+}
