@@ -9,7 +9,6 @@ html{
     background-color: white;
     margin: 50px auto;
     width: calc(75% - 20px);
-    overflow-y: hidden;
 }
 
 main h1{
