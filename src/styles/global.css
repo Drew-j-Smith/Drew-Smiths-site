@@ -1,0 +1,21 @@
+:root {
+  font-size: medium;
+  line-height: 1.5;
+  --large-screensize: 900px;
+  --background-color: #dfe0e1;
+  background-color: var(--background-color);
+}
+
+@media screen and (min-width: 900px) {
+  :root {
+    font-size: large;
+    --display-block-large: block;
+    --display-none-large: none;
+  }
+}
+
+button {
+  border-width: 0rem;
+  background-color: unset;
+  padding: unset;
+}
