@@ -1,4 +1,5 @@
-:root {
+body {
+  font-family: "Poppins";
   font-size: medium;
   line-height: 1.5;
   --large-screensize: 900px;
@@ -7,7 +8,7 @@
 }
 
 @media screen and (min-width: 900px) {
-  :root {
+  body {
     font-size: large;
     --display-block-large: block;
     --display-none-large: none;
