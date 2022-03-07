@@ -1,15 +1,26 @@
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
-      title: ``,
+    title: ``,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-mdx", {
-    resolve: 'gatsby-source-filesystem',
+  plugins: ["gatsby-plugin-sass", {
+    resolve: `gatsby-plugin-mdx`,
     options: {
-      "name": "pages",
-      "path": "./src/pages/"
+      defaultLayouts: {
+        posts: require.resolve("./src/components/posts-layout.tsx"),
+      },
     },
-    __key: "pages"
-  }]
+  }, {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "posts",
+        "path": "./src/posts/"
+      },
+    }, {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: "./src/posts",
+      },
+    },]
 };

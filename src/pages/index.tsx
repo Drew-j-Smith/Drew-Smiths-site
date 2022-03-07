@@ -8,7 +8,7 @@ const IndexPage = () => {
         title="Drew Smith"
         links={[
           { name: "Home", path: "/" },
-          { name: "Link2", path: "/" },
+          { name: "Posts", path: "/posts" },
         ]}
       ></Header>
       <p style={{ textAlign: "center" }}>
