@@ -2,7 +2,7 @@
 module.exports = {
   siteMetadata: {
     title: "Drew-Smiths-site",
-    siteUrl: "https://drew-j-smith.github.io/Drew-Smiths-site/",
+    siteUrl: "https://funplayer.xyz",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -28,5 +28,4 @@ module.exports = {
       },
     },
   ],
-  pathPrefix: "/Drew-Smiths-site",
 };
