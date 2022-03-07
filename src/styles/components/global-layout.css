@@ -5,7 +5,7 @@ body {
   --large-screensize: 900px;
   --background-color: #dfe0e1;
   background-color: var(--background-color);
-  padding: 1rem 3rem;
+  padding: 1rem calc(10% - 3rem);
 }
 
 @media screen and (min-width: 900px) {
