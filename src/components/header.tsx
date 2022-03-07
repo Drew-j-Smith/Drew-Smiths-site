@@ -62,7 +62,18 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               }
             >
               {this.props.links.map((el) => (
-                <Link key={el.name} className="header__link" to={el.path}>
+                <Link
+                  key={el.name}
+                  style={
+                    this.state.showDropdown
+                      ? {}
+                      : {
+                          transform: "translateY(50%)",
+                        }
+                  }
+                  className="header__link"
+                  to={el.path}
+                >
                   {el.name}
                 </Link>
               ))}

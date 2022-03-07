@@ -16,7 +16,7 @@
   position: fixed;
   transition: 300ms opacity;
   transition-timing-function: ease-in-out;
-  margin: 0.5rem;
+  margin: 1rem;
   width: 3rem;
   height: 3rem;
   fill: black;
@@ -38,7 +38,7 @@
 
 .header__col {
   position: fixed;
-  transition: opacity 300ms;
+  transition: opacity 500ms;
   transition-timing-function: ease-in-out;
   width: 100%;
   height: 100%;
@@ -52,7 +52,7 @@
 }
 
 .header__title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 0.5rem;
   margin: 0;
   text-align: center;
@@ -60,9 +60,11 @@
 
 .header__link {
   font-size: 1rem;
-  padding: 1rem;
+  padding: 2rem 0.5rem 1rem 0.5rem;
   text-decoration: none;
   color: inherit;
+  transition: transform 600ms;
+  transition-timing-function: ease-in-out;
 }
 
 .header__link:hover {
