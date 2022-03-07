@@ -14,9 +14,3 @@ body {
     --display-none-large: none;
   }
 }
-
-button {
-  border-width: 0rem;
-  background-color: unset;
-  padding: unset;
-}

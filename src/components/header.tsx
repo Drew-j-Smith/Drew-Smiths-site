@@ -19,7 +19,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         <h1 className="header__title">{this.props.title}</h1>
 
         <div className="header__sidebar">
-          <button>
+          <button className="header__hamburger-button">
             <svg
               className="header__hamburger"
               xmlns="http://www.w3.org/2000/svg"

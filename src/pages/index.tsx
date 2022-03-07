@@ -1,20 +1,13 @@
 import React from "react";
-import Header from "../components/header";
+import GlobalLayout from "../components/global-layout";
 
 const IndexPage = () => {
   return (
-    <main>
-      <Header
-        title="Drew Smith"
-        links={[
-          { name: "Home", path: "/" },
-          { name: "Posts", path: "/posts" },
-        ]}
-      ></Header>
+    <GlobalLayout>
       <p style={{ textAlign: "center" }}>
         This is a placeholder. The website is coming soon
       </p>
-    </main>
+    </GlobalLayout>
   );
 };
 

@@ -14,6 +14,12 @@
   cursor: pointer;
 }
 
+.header__hamburger-button {
+  border-width: 0rem;
+  background-color: unset;
+  padding: unset;
+}
+
 .header__sidebar button:focus {
   outline: solid black;
   border-radius: 5px;

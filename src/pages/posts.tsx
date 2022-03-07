@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql, PageProps } from "gatsby";
-import Header from "../components/header";
+import GlobalLayout from "../components/global-layout";
 
 type PostsProps = {
   allMdx: {
@@ -25,23 +25,18 @@ class Posts extends React.Component<PageProps<PostsProps>, {}> {
 
   render() {
     return (
-      <div>
-        <Header
-          title="Drew Smith"
-          links={[
-            { name: "Home", path: "/" },
-            { name: "Posts", path: "/posts" },
-          ]}
-        ></Header>
-        {this.data.map((el) => {
-          return (
-            <p key={el.slug}>
-              <Link to={"/" + el.slug}>{el.frontmatter.title}</Link>{" "}
-              {el.frontmatter.date}
-            </p>
-          );
-        })}
-      </div>
+      <GlobalLayout>
+        <>
+          {this.data.map((el) => {
+            return (
+              <p key={el.slug}>
+                <Link to={"/" + el.slug}>{el.frontmatter.title}</Link>{" "}
+                {el.frontmatter.date}
+              </p>
+            );
+          })}
+        </>
+      </GlobalLayout>
     );
   }
 }
