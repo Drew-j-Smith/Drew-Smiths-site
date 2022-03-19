@@ -1,0 +1,45 @@
+---
+title: Multithreaded Producer Consumer
+date: 2022-03-19
+---
+
+## Overview
+
+This is a problem I encountered while devoloping my Switch Controller Project.
+In that project I wanted to convert video and audio streams
+into actions that the controller would perform.
+
+At a high level, there is a stream of data that comes in.
+Performing operations produces a data stream coming out.
+In this scenario, a consumer is a different transformation on the data.
+However, each consumer only needs the most recent data.
+Thus, the problem arises when multiple consumers are polling for data.
+How should the consumer/producer be syncronized?
+
+## Current Implementation
+
+In the current implementation, I avoided this issue by synconizing the consumers.
+Every consumer must finish with the data before any new data could be retrieved.
+However this implementation is very crude.
+The sound and video stream behave very similarly and yet I had to repeat code for both.
+It would be impractical for audio processing to wait on video processing.
+Video processing takes serveral times longer and the algorithm implemented for sound
+requires constant updates.
+
+## Proposed Solution
+
+A much better solution would be to continuously update each consumer and
+let the consumer directly poll the producer.
+
+> ### Note:
+>
+> In current implementation, this would be horribly ineffcient as each consumer would have to copy the
+> array from the producer.
+> This would have lots of memory allocations lots of contention for the mutex.
+> Thus, this would have way too much overhead.
+
+A solution to this would be to have the producer create a reference counted consumer array.
+The producer would hold reference to the most recent data.
+When the producer gets new data it updates the reference to the most recent data.
+The consumer could poll for the most recent data.
+This would prevent data races while minimizing allocations.
