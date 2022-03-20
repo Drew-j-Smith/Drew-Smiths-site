@@ -30,7 +30,7 @@ class Posts extends React.Component<PageProps<PostsProps>, {}> {
           {this.data.map((el) => {
             return (
               <p key={el.slug}>
-                <Link to={"/" + el.slug}>{el.frontmatter.title}</Link>{" "}
+                <Link to={"/posts/" + el.slug}>{el.frontmatter.title}</Link>{" "}
                 {el.frontmatter.date}
               </p>
             );
