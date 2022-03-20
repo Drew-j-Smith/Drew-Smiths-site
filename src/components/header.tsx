@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import "../styles/components/header.css";
+import "../styles/components/header.scss";
 
 type HeaderState = {
   showDropdown: boolean;
@@ -21,7 +21,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <>
         <div className="header__container">
           <button
-            className="header__hamburger-button"
             onClick={() => {
               this.setState((prevState) => {
                 return {
@@ -31,7 +30,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             }}
           >
             <svg
-              className="header__hamburger-svg"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="#000000"
@@ -58,12 +56,12 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           </button>
           <div className="header__row">
             {this.props.links.map((el) => (
-              <Link key={el.name} className="header__link" to={el.path}>
+              <Link key={el.name} to={el.path}>
                 {el.name}
               </Link>
             ))}
           </div>
-          <h1 className="header__title">{this.props.title}</h1>
+          <h1>{this.props.title}</h1>
           <div></div>
         </div>
         <div
@@ -82,7 +80,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       transform: "translateY(50%)",
                     }
               }
-              className="header__link"
               to={el.path}
             >
               {el.name}
