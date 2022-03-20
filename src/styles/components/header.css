@@ -12,13 +12,14 @@
   display: var(--display-flex-large, none);
 }
 
-.header__hamburger-svg {
-  position: fixed;
+.header__hamburger-svg path {
   transition: 300ms opacity;
   transition-timing-function: ease-in-out;
-  margin: 1rem;
-  width: 3rem;
-  height: 3rem;
+}
+
+.header__hamburger-svg {
+  width: 100%;
+  height: 100%;
   fill: black;
   cursor: pointer;
 }
@@ -30,7 +31,9 @@
 }
 
 .header__hamburger-button {
-  position: fixed;
+  margin: 1rem;
+  width: 3rem;
+  height: 3rem;
   border-width: 0rem;
   background-color: unset;
   padding: 0;
@@ -43,7 +46,6 @@
   transition-timing-function: ease-in-out;
   width: 100%;
   height: 100%;
-  transform: translateY(5rem);
   display: flex;
   flex-direction: column;
   background-color: var(--background-color);
