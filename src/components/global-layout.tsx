@@ -15,9 +15,8 @@ const GlobalLayout = (props: GlobalLayoutProps) => (
         { name: "Home", path: "/" },
         { name: "Posts", path: "/posts" },
       ]}
-    >
-      {props.children}
-    </Header>
+    ></Header>
+    {props.children}
   </main>
 );
 

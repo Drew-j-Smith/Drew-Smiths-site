@@ -4,10 +4,6 @@
   width: 100%;
 }
 
-.header__sidebar {
-  display: var(--display-none-large, block);
-}
-
 .header__row {
   display: var(--display-flex-large, none);
 }
@@ -31,6 +27,7 @@
 }
 
 .header__hamburger-button {
+  display: var(--display-none-large, block);
   margin: 1rem;
   width: 3rem;
   height: 3rem;
@@ -41,12 +38,12 @@
 }
 
 .header__col {
+  display: var(--display-none-large, flex);
   position: fixed;
   transition: opacity 500ms;
   transition-timing-function: ease-in-out;
   width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: column;
   background-color: var(--background-color);
   z-index: 50;
