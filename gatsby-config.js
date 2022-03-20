@@ -6,25 +6,12 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-sass",
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: {
-          posts: require.resolve("./src/components/posts-layout.tsx"),
-        },
-      },
-    },
+    "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
         path: "./src/posts/",
-      },
-    },
-    {
-      resolve: "gatsby-plugin-page-creator",
-      options: {
-        path: "./src/posts",
       },
     },
   ],
