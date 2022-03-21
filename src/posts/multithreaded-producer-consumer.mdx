@@ -94,8 +94,7 @@ enqueue(tail, x):
     tail = new_tail
 
 dequeue(head):
-    do
-        p = atomic_load(head)
+    p = atomic_load(head)
     while !CAS(head, p, p->next)
     return p->data
 ```
@@ -136,18 +135,15 @@ function where the dequeue function attempts to advanced the tail itself.
 
 ```
 dequeue(head, tail):
+    p = atomic_load(head)
+    q = atomic_load(tail)
     do
-        p = atomic_load(head)
-        q = atomic_load(tail)
         if p->next == NULL
             return NULL
-        if (p == q)
+        if (p == atomic_load(tail))
             CAS(tail, q, q->next)
-            res = false
-        else
-            data = p->next->data
-            res = CAS(head, p, p->next)
-    while !res
+        data = p->next->data
+    while CAS(head, p, p->next)
     return data
 ```
 
