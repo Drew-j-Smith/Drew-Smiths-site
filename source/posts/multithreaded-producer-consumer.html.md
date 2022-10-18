@@ -85,7 +85,7 @@ Documentation can be found [here](https://c9x.me/x86/html/file_module_x86_id_41.
 
 ### Naive (Lockfree) Implementation
 
-```
+<pre><code>
 enqueue(tail, x):
     new_tail = new node(x)
     do
@@ -96,7 +96,7 @@ dequeue(head):
     p = atomic_load(head)
     while !CAS(head, p, p->next)
     return p->data
-```
+</code></pre>
 
 This algorithm falls short on several fronts. Some issues are easier to fix than others.
 
@@ -108,7 +108,7 @@ wait indefinitly. A fix for this could be implemented by checking if the CAS for
 and then attempt to traverse the tail themselves. This avoids the issue of a thread not
 updating the tail.
 
-```
+<pre><code>
 enqueue(tail, x):
     new_tail = new node(x)
     do
@@ -118,7 +118,7 @@ enqueue(tail, x):
             CAS(tail, p, p->next);
     while !res
     CAS(tail, p, new_tail);
-```
+</code></pre>
 
 #### Dequeue Fixes
 
@@ -132,7 +132,7 @@ the head is advanced to the very end and the tail is lagging behind, then the he
 This could lead to the node at the tail be inadvertantly deleted. The fix is similar to the enqueue
 function where the dequeue function attempts to advanced the tail itself.
 
-```
+<pre><code>
 dequeue(head, tail):
     p = atomic_load(head)
     q = atomic_load(tail)
@@ -144,7 +144,7 @@ dequeue(head, tail):
         data = p->next->data
     while CAS(head, p, p->next)
     return data
-```
+</code></pre>
 
 #### Memory Issue (ABA problem)
 
