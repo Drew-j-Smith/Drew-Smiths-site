@@ -1,4 +1,6 @@
+.bundle
+.cache
+.DS_Store
+.sass-cache
+build/
 node_modules/
-.cache/
-public
-.vscode

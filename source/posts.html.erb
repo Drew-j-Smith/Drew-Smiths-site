@@ -1,0 +1,7 @@
+---
+title: Posts
+---
+
+<% sitemap.resources.select { |resource| resource.path.match? /^posts\// }.each do |resource|%>
+  <%= content_tag :p, (link_to resource.data.title, resource.path) %>
+<% end %>
