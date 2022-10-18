@@ -11,14 +11,14 @@
     <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <div class="header__container">
-      <div class="header__row">
+    <header>
+      <ul>
         <% [['/', 'Home'], ['posts', 'Posts']].each do |link, name| %>
-          <%= link_to name, link, :class => 'header__row' %>
+          <%= content_tag :li, (link_to name, link) %>
         <% end %>
-      </div>
+      </ul>
       <h1>Drew Smith</h1>
-    </div>
+    </header>
     <%= content_tag :h2, current_page.data.title %>
     <%= yield %>
   </body>

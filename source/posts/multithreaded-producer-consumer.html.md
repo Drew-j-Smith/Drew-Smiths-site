@@ -92,7 +92,6 @@ enqueue(tail, x):
         p = atomic_load(tail)
     while !CAS(p->next, NULL, new_tail)
     tail = new_tail
-
 dequeue(head):
     p = atomic_load(head)
     while !CAS(head, p, p->next)
