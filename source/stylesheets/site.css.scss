@@ -22,25 +22,15 @@ header {
   }
 
   ul {
-    flex-direction: row;
     display: flex;
     margin: 0;
-    padding: 0;
-    padding-top: 2ex;
+    padding: 2ex 0 0;
   }
 
   li {
-    display: flex;
-    margin-bottom: auto;
-  }
-
-  a {
+    list-style-type: none;
     margin: 0;
     padding: 1rem;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 600ms;
-    transition-timing-function: ease-in-out;
     &:hover {
       text-decoration-thickness: 0.1rem;
       text-decoration-line: underline;
@@ -50,6 +40,34 @@ header {
       outline: solid black;
       border-radius: 5px;
       outline-offset: -4px;
+    }
+  }
+
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    h1 {
+      order: -1;
+    }
+
+    ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      text-align: center;
+      border: solid #bdbfc2;
+    }
+
+    li:nth-child(odd) {
+      background-color: #caccce;
     }
   }
 }
