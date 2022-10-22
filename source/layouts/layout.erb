@@ -13,7 +13,7 @@
   <body>
     <header>
       <ul>
-        <% [['/', 'Home'], ['posts', 'Posts']].each do |link, name| %>
+        <% [['/', 'Home'], ['posts', 'Posts'], ['sudoku', 'Sudoku']].each do |link, name| %>
           <%= content_tag :li, (link_to name, link) %>
         <% end %>
       </ul>

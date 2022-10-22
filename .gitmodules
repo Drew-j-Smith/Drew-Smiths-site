@@ -1,0 +1,4 @@
+[submodule "external-projects/sudoku"]
+	path = external-projects/sudoku
+	url = https://github.com/Drew-j-Smith/sudoku
+	branch = wasm

@@ -72,3 +72,10 @@ header {
   }
 }
 
+// sudoku tables
+td {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  border: solid black 1px;
+}

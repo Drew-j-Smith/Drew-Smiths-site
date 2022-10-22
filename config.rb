@@ -44,3 +44,9 @@ page '/*.txt', layout: false
 #   activate :minify_css
 #   activate :minify_javascript
 # end
+
+activate :external_pipeline,
+  name: :wasm_pack,
+  command: "wasm-pack build --target web --out-dir pkg/sudoku external-projects/sudoku",
+  source: "external-projects/sudoku/pkg",
+  latency: 1
