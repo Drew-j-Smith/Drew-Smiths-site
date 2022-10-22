@@ -3,5 +3,9 @@ title: Sudoku
 ---
 <script defer type="module" src="/sudoku/page.js"></script>
 
-<h3 id="unsolved">Unsolved</h2>
-<h3 id="solved">Solved</h2>
+<table id="sudoku-table" contenteditable="true">
+    <%= "<tr>#{content_tag(:td) * 9}</tr>" * 9 %>
+</table>
+<button id="populate">Populate sudoku table</button>
+<button id="solve">Solve sudoku table</button>
+<button id="clear">Clear sudoku table</button>

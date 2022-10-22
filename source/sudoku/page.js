@@ -1,29 +1,36 @@
-function createNode(arr) {
-    const table = document.createElement("table");
+function updateTable(arr) {
+    let table = document.getElementById("sudoku-table").tBodies[0];
     for (let row = 0; row < 9; row++) {
-        let row_node = document.createElement("tr");
         for (let col = 0; col < 9; col++) {
-            let entry = document.createElement("td");
-            let data = arr[row * 9 + col] >= 1 && arr[row * 9 + col] <= 9 ? arr[row * 9 + col] : "";
-            let text = document.createTextNode(data);
-            entry.appendChild(text);
-            row_node.appendChild(entry);
+            let data = arr[row * 9 + col];
+            data = data >= 1 && data <= 9 ? data : "";
+            table.rows[row].cells[col].innerHTML = data;
         }
-        table.appendChild(row_node);
     }
-    return table;
 }
 
 import init, { complete_sudoku } from './sudoku.js';
-(async () => {
-    await init();
+
+document.getElementById("populate").onclick = async () => {
     let response = await fetch('https://sugoku.herokuapp.com/board?difficulty=easy');
     let raw_json = await response.json();
     let data = raw_json.board.reduce((arr, curr) => arr.concat(curr));
-    document.getElementById("unsolved").insertAdjacentElement('afterend', createNode(data));
+    updateTable(data);
+};
 
+document.getElementById("solve").onclick = async () => {
+    await init();
+    let data = Array(81);
+    let table = document.getElementById("sudoku-table").tBodies[0];
+    for (let row = 0; row < 9; row++) {
+        for (let col = 0; col < 9; col++) {
+            data[row * 9 + col] = table.rows[row].cells[col].innerHTML;
+        }
+    }
     let res = complete_sudoku(data);
-    console.log(res);
+    updateTable(res);
+};
 
-    document.getElementById("solved").insertAdjacentElement('afterend', createNode(res));
-})();
+document.getElementById("clear").onclick = async () => {
+    updateTable(Array(81));
+};
