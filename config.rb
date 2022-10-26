@@ -50,3 +50,9 @@ activate :external_pipeline,
   command: "wasm-pack build --target web --out-dir pkg/sudoku external-projects/sudoku",
   source: "external-projects/sudoku/pkg",
   latency: 1
+
+activate :external_pipeline,
+  name: :emscripten,
+  command: "cd external-projects/smithscript && emcc src/main.cpp -Isrc -Ilib/compile-time-regular-expressions/single-header -std=c++20 -sEXPORTED_FUNCTIONS=_wasm_parse,_main -sEXPORTED_RUNTIME_METHODS=cwrap -o web/parser_wasm.js",
+  source: "external-projects/smithscript/web",
+  latency: 1

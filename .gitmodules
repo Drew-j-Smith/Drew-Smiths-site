@@ -2,3 +2,7 @@
 	path = external-projects/sudoku
 	url = https://github.com/Drew-j-Smith/sudoku
 	branch = wasm
+[submodule "external-projects/smithscript"]
+	path = external-projects/smithscript
+	url = https://github.com/Drew-j-Smith/smithscript
+	branch = wasm
