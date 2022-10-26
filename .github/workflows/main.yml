@@ -18,6 +18,8 @@ jobs:
           toolchain: stable
       - run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
+      - uses: mymindstorm/setup-emsdk@v11
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1"
