@@ -3,6 +3,7 @@ title: Sudoku
 ---
 <script defer type="module" src="/sudoku/page.js"></script>
 
+<%= partial 'sudoku_intro' %>
 <table id="sudoku-table" contenteditable="true">
     <%= "<tr>#{content_tag(:td) * 9}</tr>" * 9 %>
 </table>
