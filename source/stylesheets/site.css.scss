@@ -39,24 +39,33 @@ header {
   }
 
   li {
+    display: flex;
     list-style-type: none;
-    margin: 0;
+    width: auto;
+    height: auto;
+  }
+
+  a {
+    width: 100%;
     padding: 1rem;
+  }
+}
+
+header, footer {
+  a {
+    margin: 0;
+    text-decoration: inherit;
+    color: inherit;
     &:hover {
       text-decoration-thickness: 0.1rem;
       text-decoration-line: underline;
       text-decoration-style: solid;
     }
-    &:focus-within {
+    &:focus {
       outline: solid black;
       border-radius: 5px;
       outline-offset: -4px;
     }
-  }
-
-  a {
-    text-decoration: inherit;
-    color: inherit;
   }
 }
 
