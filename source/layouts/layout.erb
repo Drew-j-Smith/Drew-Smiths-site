@@ -19,7 +19,10 @@
       </ul>
       <h1>Drew Smith</h1>
     </header>
-    <%= content_tag :h2, current_page.data.title %>
-    <%= yield %>
+    <main>
+      <%= content_tag :h2, current_page.data.title %>
+      <%= yield %>
+    </main>
+    <%= partial '/layouts/footer'%>
   </body>
 </html>

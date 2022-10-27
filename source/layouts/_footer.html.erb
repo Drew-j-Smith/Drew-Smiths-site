@@ -1,0 +1,12 @@
+<footer>
+    <span>© Drew Smith</span>
+    <a href="https://github.com/Drew-j-Smith">
+        <img src="/images/github.svg" alt="github" id="github">
+    </a>
+    <a href="https://github.com/Drew-j-Smith/Drew-Smiths-site">
+        Code for this Site
+    </a>
+    <% if current_page.data.page_code %>
+        <%= link_to 'Code for this Page', current_page.data.page_code %>
+    <% end %>
+</footer>
