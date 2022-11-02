@@ -10,5 +10,3 @@ the algorithm is not as optimal or clean as I would like and as such I may event
 use backtracing instead with a more complicated evaluation algorithm.
 
 ### Demo
-
-(The generate button doesn't work right now because of an api breakage)
