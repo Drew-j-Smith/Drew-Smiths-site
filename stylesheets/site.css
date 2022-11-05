@@ -1,0 +1,91 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: medium;
+  line-height: 1.5;
+  background-color: #dfe0e1;
+  margin: 0;
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto; }
+  body > * {
+    padding: 0 Max(1rem, calc(10% - 3rem));
+    width: 100%; }
+
+header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  padding-top: 1ex; }
+  header h1 {
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center; }
+  header ul {
+    display: flex;
+    margin: 0;
+    padding: 2ex 0 0; }
+  header li {
+    display: flex;
+    list-style-type: none;
+    width: auto;
+    height: auto; }
+  header a {
+    width: 100%;
+    padding: 1rem; }
+
+header a, footer a {
+  margin: 0;
+  text-decoration: inherit;
+  color: inherit; }
+  header a:hover, footer a:hover {
+    text-decoration-thickness: 0.1rem;
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
+    -webkit-text-decoration-style: solid;
+            text-decoration-style: solid; }
+  header a:focus, footer a:focus {
+    outline: solid black;
+    border-radius: 5px;
+    outline-offset: -4px; }
+
+@media (max-width: 900px) {
+  header {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto; }
+    header h1 {
+      order: -1; }
+    header ul {
+      flex-direction: column;
+      width: 100%;
+      padding: 0;
+      text-align: center;
+      border: solid #bdbfc2; }
+    header li:nth-child(odd) {
+      background-color: #caccce; } }
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10ex;
+  background-color: #aaa;
+  margin-top: 2ex; }
+  footer > * {
+    padding: 0.5rem; }
+
+td {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  border: solid black 1px; }

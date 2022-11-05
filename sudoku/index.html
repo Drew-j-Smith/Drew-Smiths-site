@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Sudoku</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');</style>
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/site.js"></script>
+  </head>
+  <body>
+    <header>
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/posts.html">Posts</a></li>
+          <li><a href="/sudoku/">Sudoku</a></li>
+          <li><a href="/parser/">Parser</a></li>
+      </ul>
+      <h1>Drew Smith</h1>
+    </header>
+    <main>
+      <h2>Sudoku</h2>
+      <script type="module" src="/sudoku/page.js"></script>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>This is a simple sudoku solving algorithm made in rust and compiled to web assembly.
+The algorithm used is fairly simple. It sorts the remaining squared by the number of squares that
+would be affected if it changed. Then the algorithm randomly selects a number for the square and updates
+the remaining squares until the board is invalid or solved. If the board is invalid the algorithm tries again.</p>
+
+<p>While this is a rather crude algorithm, it is quite effective at solving puzzles. The random nature of
+the algorithm is not as optimal or clean as I would like and as such I may eventually rework the algorithm to
+use backtracing instead with a more complicated evaluation algorithm.</p>
+
+<h3 id="demo">Demo</h3>
+
+<table id="sudoku-table" contenteditable="true">
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<button id="populate">Populate sudoku table</button>
+<button id="solve">Solve sudoku table</button>
+<button id="clear">Clear sudoku table</button>
+
+    </main>
+    <footer>
+    <span>© Drew Smith</span>
+    <a href="https://github.com/Drew-j-Smith">
+        <img src="/images/github.svg" alt="github" id="github" width="30" height="30">
+    </a>
+    <a href="https://github.com/Drew-j-Smith/Drew-Smiths-site">
+        Code for this Site
+    </a>
+        <a href="https://github.com/Drew-j-Smith/sudoku">Code for this Page</a>
+</footer>
+  </body>
+</html>

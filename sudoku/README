@@ -1,0 +1,13 @@
+<h1 id="sudoku">sudoku</h1>
+
+<h2 id="install">Install</h2>
+
+<p><code>sh
+cargo install wasm-pack
+</code></p>
+
+<h2 id="build">Build</h2>
+
+<p><code>sh
+wasm-pack build --target web
+</code></p>

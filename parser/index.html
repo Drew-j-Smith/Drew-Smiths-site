@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Parser</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');</style>
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <script src="/javascripts/site.js"></script>
+  </head>
+  <body>
+    <header>
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/posts.html">Posts</a></li>
+          <li><a href="/sudoku/">Sudoku</a></li>
+          <li><a href="/parser/">Parser</a></li>
+      </ul>
+      <h1>Drew Smith</h1>
+    </header>
+    <main>
+      <h2>Parser</h2>
+      <h3 id="motivation">Motivation</h3>
+
+<p>After experimenting with several C++ features I wanted to test them out.
+Particualarlly interesting to me was using variadic expressions to generate a lot of code.
+With this in mind, I wanted to create a parser which would create elements and insert them in thier final
+position, all while reducing object construction to a single (templated) method.</p>
+
+<h3 id="challenges">Challenges</h3>
+
+<p>I have never made a text processor before but I had the desire to learn.
+This parser is a shift reduce parser with one lookahead symbol.
+While I wanted to make the lookahead symbol entirely automated, that proved too difficult for the inital project
+and the lookahead symbols were/are manually specified.</p>
+
+<h3 id="grammar">Grammar</h3>
+
+<p>Here is the grammar for the language I created. It shares a C like curly brace syntax.
+Most of the Symbols used here are fairly self explanatory however the regex used can be found on <a href="https://github.com/Drew-j-Smith/smithscript/blob/wasm/src/script/tokens.h">github</a>.</p>
+
+<pre><code>
+
+             &lt;FunctionCall&gt; ::= &lt;FunctionParameters&gt;&lt;CloseParenToken&gt;
+                              | &lt;Identifier&gt;&lt;OpenParenToken&gt;&lt;CloseParenToken&gt;
+
+             &lt;IfExpression&gt; ::= &lt;IfCondition&gt;&lt;OpenBraceToken&gt;&lt;Block&gt;&lt;CloseBraceToken&gt;
+
+              &lt;IfCondition&gt; ::= &lt;IfToken&gt;&lt;OpenParenToken&gt;&lt;AddExpression&gt;&lt;CloseParenToken&gt;
+
+          &lt;WhileExpression&gt; ::= &lt;WhileCondition&gt;&lt;OpenBraceToken&gt;&lt;Block&gt;&lt;CloseBraceToken&gt;
+
+           &lt;WhileCondition&gt; ::= &lt;WhileToken&gt;&lt;OpenParenToken&gt;&lt;AddExpression&gt;&lt;CloseParenToken&gt;
+
+                  &lt;Integer&gt; ::= &lt;IntegerToken&gt;
+
+               &lt;Expression&gt; ::= &lt;Identifier&gt;
+                              | &lt;Integer&gt;
+                              | &lt;OpenParenToken&gt;&lt;AddExpression&gt;&lt;CloseParenToken&gt;
+                              | &lt;FunctionCall&gt;
+                              | &lt;Identifier&gt;&lt;OpenSquareBraceToken&gt;&lt;AddExpression&gt;&lt;CloseSquareBraceToken&gt;
+                              | &lt;StringLiteralToken&gt;
+
+           &lt;MultExpression&gt; ::= &lt;MultExpression&gt;&lt;MultToken&gt;&lt;Expression&gt;
+                              | &lt;Expression&gt;
+
+            &lt;AddExpression&gt; ::= &lt;AddExpression&gt;&lt;AddToken&gt;&lt;MultExpression&gt;
+                              | &lt;AddExpression&gt;&lt;SubToken&gt;&lt;MultExpression&gt;
+                              | &lt;MultExpression&gt;
+
+               &lt;Assignment&gt; ::= &lt;Identifier&gt;&lt;EqlToken&gt;&lt;AddExpression&gt;
+                              | &lt;Identifier&gt;&lt;OpenSquareBraceToken&gt;&lt;AddExpression&gt;&lt;CloseSquareBraceToken&gt;&lt;EqlToken&gt;&lt;AddExpression&gt;
+
+                &lt;Statement&gt; ::= &lt;AddExpression&gt;&lt;SemicolonToken&gt;
+                              | &lt;Assignment&gt;&lt;SemicolonToken&gt;
+                              | &lt;IfExpression&gt;
+                              | &lt;WhileExpression&gt;
+
+                    &lt;Block&gt; ::= &lt;Block&gt;&lt;Statement&gt;
+                              | &lt;Statement&gt;
+
+       &lt;FunctionParameters&gt; ::= &lt;Identifier&gt;&lt;OpenParenToken&gt;&lt;AddExpression&gt;
+                              | &lt;FunctionParameters&gt;&lt;CommaToken&gt;&lt;AddExpression&gt;
+
+</code></pre>
+
+<h3>Interactive terminal</h3>
+<p>The only function defined is the <code>print</code> function, which prints data to the screen.</p>
+
+<script defer src="/parser.js"></script>
+<script defer src="/parser_wasm.js"></script>
+<p><textarea id="input" cols="80" rows="10"></textarea></p>
+<button id="button">Run</button>
+<div id="output"></div>
+
+    </main>
+    <footer>
+    <span>© Drew Smith</span>
+    <a href="https://github.com/Drew-j-Smith">
+        <img src="/images/github.svg" alt="github" id="github" width="30" height="30">
+    </a>
+    <a href="https://github.com/Drew-j-Smith/Drew-Smiths-site">
+        Code for this Site
+    </a>
+        <a href="https://github.com/Drew-j-Smith/smithscript">Code for this Page</a>
+</footer>
+  </body>
+</html>
